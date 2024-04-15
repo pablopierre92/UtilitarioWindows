@@ -39,6 +39,17 @@ namespace PPN
             string recentPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Recent));
             CleanDirectory(recentPath);
 
+            //Esvazia Lixeira
+            string comando2 = "rd /s /q C:\\$Recycle.Bin";
+            
+            ProcessStartInfo psi2 = new ProcessStartInfo();
+            psi2.FileName = "cmd.exe";
+            psi2.Arguments = "/c " + comando2;
+            psi2.UseShellExecute = true; 
+            psi2.Verb = "runas"; 
+
+            Process.Start(psi2);
+
             MessageBox.Show("Limpeza concluída!");
         }
 

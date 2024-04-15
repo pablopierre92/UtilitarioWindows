@@ -45,9 +45,9 @@
             // 
             btn_Temp.Location = new Point(15, 33);
             btn_Temp.Name = "btn_Temp";
-            btn_Temp.Size = new Size(85, 23);
+            btn_Temp.Size = new Size(112, 23);
             btn_Temp.TabIndex = 0;
-            btn_Temp.Text = "Temporários";
+            btn_Temp.Text = "Limpar";
             btn_Temp.UseVisualStyleBackColor = true;
             btn_Temp.Click += btn_Temp_Click;
             // 
@@ -115,7 +115,7 @@
             // 
             // btn_importar
             // 
-            btn_importar.Location = new Point(119, 43);
+            btn_importar.Location = new Point(112, 43);
             btn_importar.Name = "btn_importar";
             btn_importar.Size = new Size(75, 23);
             btn_importar.TabIndex = 7;
@@ -132,6 +132,7 @@
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "PPN";
             groupBox1.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
