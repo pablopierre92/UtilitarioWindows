@@ -122,7 +122,7 @@ namespace PPN
                 }
                 else
                 {
-                    MessageBox.Show("A pasta BackupDrivers em C: já existe!, os arquivos serão copiados para ela", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("A pasta BackupDrivers em C: já existe, os arquivos serão copiados para ela", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 comando = "dism /online /export-driver /destination:C:\\BackupDrivers";
@@ -154,7 +154,7 @@ namespace PPN
                     MessageBox.Show("O diretório selecionado é: " + caminhoSelecionado, "Diretório Selecionado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                comando = "Dism /online /Add-Driver /Driver:E:{caminhoSelecionado} /Recurse";
+                comando = "Dism /online /Add-Driver /Driver:{caminhoSelecionado} /Recurse";
 
                 ExecutaCmd();
             }
@@ -212,11 +212,26 @@ namespace PPN
 
             ExecutaCmd();
 
+
         }
 
         private void btn_AddRem_Click(object sender, EventArgs e)
         {
             comando = "start appwiz.cpl";
+
+            ExecutaCmd();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            comando = "start https://www.linkedin.com/in/pablo-pierre-04422ab6/";
+
+            ExecutaCmd();
+        }
+
+        private void btn_OpcoesDeEnergia_Click(object sender, EventArgs e)
+        {
+            comando = "start powercfg.cpl";
 
             ExecutaCmd();
         }

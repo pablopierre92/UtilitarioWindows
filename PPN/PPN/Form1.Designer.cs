@@ -39,13 +39,14 @@
             btn_importar = new Button();
             btn_Max = new Button();
             groupBox4 = new GroupBox();
+            btn_OpcoesDeEnergia = new Button();
             btn_Notifc = new Button();
             btn_Sensor = new Button();
             btn_OpcDes = new Button();
             groupBox5 = new GroupBox();
             btn_AntiVirus = new Button();
             btn_AddRem = new Button();
-            btn_OpcoesDeEnergia = new Button();
+            linkLabel1 = new LinkLabel();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -167,6 +168,16 @@
             groupBox4.TabStop = false;
             groupBox4.Text = "Energia";
             // 
+            // btn_OpcoesDeEnergia
+            // 
+            btn_OpcoesDeEnergia.Location = new Point(26, 53);
+            btn_OpcoesDeEnergia.Name = "btn_OpcoesDeEnergia";
+            btn_OpcoesDeEnergia.Size = new Size(140, 23);
+            btn_OpcoesDeEnergia.TabIndex = 8;
+            btn_OpcoesDeEnergia.Text = "Opções de Energia";
+            btn_OpcoesDeEnergia.UseVisualStyleBackColor = true;
+            btn_OpcoesDeEnergia.Click += btn_OpcoesDeEnergia_Click;
+            // 
             // btn_Notifc
             // 
             btn_Notifc.Location = new Point(17, 22);
@@ -229,20 +240,23 @@
             btn_AddRem.UseVisualStyleBackColor = true;
             btn_AddRem.Click += btn_AddRem_Click;
             // 
-            // btn_OpcoesDeEnergia
+            // linkLabel1
             // 
-            btn_OpcoesDeEnergia.Location = new Point(26, 53);
-            btn_OpcoesDeEnergia.Name = "btn_OpcoesDeEnergia";
-            btn_OpcoesDeEnergia.Size = new Size(140, 23);
-            btn_OpcoesDeEnergia.TabIndex = 8;
-            btn_OpcoesDeEnergia.Text = "Opções de Energia";
-            btn_OpcoesDeEnergia.UseVisualStyleBackColor = true;
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new Point(366, 332);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(135, 15);
+            linkLabel1.TabIndex = 16;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Pablo Pierre da Nóbrega";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(513, 356);
+            Controls.Add(linkLabel1);
             Controls.Add(btn_AddRem);
             Controls.Add(btn_AntiVirus);
             Controls.Add(groupBox5);
@@ -259,6 +273,7 @@
             groupBox4.ResumeLayout(false);
             groupBox5.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -281,5 +296,6 @@
         private Button btn_AntiVirus;
         private Button btn_AddRem;
         private Button btn_OpcoesDeEnergia;
+        protected LinkLabel linkLabel1;
     }
 }
