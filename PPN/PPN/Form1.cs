@@ -20,8 +20,16 @@ namespace PPN
             CleanDirectory(tempPath);
 
             // Pasta %Temp%
-            string userTempPath = Environment.GetEnvironmentVariable("TEMP");
-            CleanDirectory(userTempPath);
+            string comando = "Del /S /F /Q %temp%";
+
+            // Configura as propriedades do processo
+            ProcessStartInfo psi = new ProcessStartInfo();
+            psi.FileName = "cmd.exe";
+            psi.Arguments = "/c " + comando;
+            psi.UseShellExecute = true; // Usa o shell para iniciar o processo
+            psi.Verb = "runas"; // Executa como administrador
+                       
+            Process.Start(psi);
 
             // Pasta Prefetch
             string prefetchPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Windows), "Prefetch");
@@ -65,7 +73,7 @@ namespace PPN
             // Configura as propriedades do processo
             ProcessStartInfo psi = new ProcessStartInfo();
             psi.FileName = "cmd.exe";
-            psi.Arguments = "/c " + comando; 
+            psi.Arguments = "/c " + comando;
             psi.UseShellExecute = true; // Usa o shell para iniciar o processo
             psi.Verb = "runas"; // Executa como administrador
 
@@ -83,7 +91,7 @@ namespace PPN
             // Configura as propriedades do processo
             ProcessStartInfo psi = new ProcessStartInfo();
             psi.FileName = "cmd.exe";
-            psi.Arguments = "/c " + comando; 
+            psi.Arguments = "/c " + comando;
             psi.UseShellExecute = true; // Usa o shell para iniciar o processo
             psi.Verb = "runas"; // Executa como administrador
 
@@ -91,8 +99,9 @@ namespace PPN
             // Inicia o processo
             Process.Start(psi);
         }
+
+        
+
     }
-
-
 
 }
