@@ -33,8 +33,12 @@
             btn_Corrige = new Button();
             btn_chkdsk = new Button();
             groupBox2 = new GroupBox();
+            btn_exportar = new Button();
+            groupBox3 = new GroupBox();
+            btn_importar = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // btn_Temp
@@ -50,9 +54,9 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(btn_Temp);
-            groupBox1.Location = new Point(29, 36);
+            groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(200, 100);
+            groupBox1.Size = new Size(163, 90);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Limpeza";
@@ -81,24 +85,57 @@
             // 
             groupBox2.Controls.Add(btn_Corrige);
             groupBox2.Controls.Add(btn_chkdsk);
-            groupBox2.Location = new Point(29, 156);
+            groupBox2.Location = new Point(12, 108);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(200, 100);
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             groupBox2.Text = "Correção";
             // 
+            // btn_exportar
+            // 
+            btn_exportar.Location = new Point(20, 43);
+            btn_exportar.Name = "btn_exportar";
+            btn_exportar.Size = new Size(75, 23);
+            btn_exportar.TabIndex = 5;
+            btn_exportar.Text = "Exportar";
+            btn_exportar.UseVisualStyleBackColor = true;
+            btn_exportar.Click += btn_exportar_Click;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(btn_importar);
+            groupBox3.Controls.Add(btn_exportar);
+            groupBox3.Location = new Point(12, 223);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(200, 100);
+            groupBox3.TabIndex = 6;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Drivers";
+            // 
+            // btn_importar
+            // 
+            btn_importar.Location = new Point(119, 43);
+            btn_importar.Name = "btn_importar";
+            btn_importar.Size = new Size(75, 23);
+            btn_importar.TabIndex = 7;
+            btn_importar.Text = "Importar";
+            btn_importar.UseVisualStyleBackColor = true;
+            btn_importar.Click += btn_importar_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(361, 356);
+            Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Name = "Form1";
             Text = "PPN";
             groupBox1.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
+            groupBox3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -109,5 +146,8 @@
         private Button btn_Corrige;
         private Button btn_chkdsk;
         private GroupBox groupBox2;
+        private Button btn_exportar;
+        private GroupBox groupBox3;
+        private Button btn_importar;
     }
 }
