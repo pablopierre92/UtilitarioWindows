@@ -6,7 +6,7 @@ namespace PPN
 {
     public partial class Form1 : Form
     {
-
+        public object MessageDialog { get; private set; }
 
         public Form1()
         {
@@ -41,12 +41,12 @@ namespace PPN
 
             //Esvazia Lixeira
             string comando2 = "rd /s /q C:\\$Recycle.Bin";
-            
+
             ProcessStartInfo psi2 = new ProcessStartInfo();
             psi2.FileName = "cmd.exe";
             psi2.Arguments = "/c " + comando2;
-            psi2.UseShellExecute = true; 
-            psi2.Verb = "runas"; 
+            psi2.UseShellExecute = true;
+            psi2.Verb = "runas";
 
             Process.Start(psi2);
 
@@ -151,18 +151,18 @@ namespace PPN
 
         private void btn_importar_Click(object sender, EventArgs e)
         {
-            
+
             using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
             {
-                
+
                 folderBrowserDialog.Description = "Selecione o diretório desejado";
 
-                
+
                 if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
                 {
                     // Obtem o caminho do diretorio selecionado
                     string caminhoSelecionado = folderBrowserDialog.SelectedPath;
-                    
+
                     MessageBox.Show("O diretório selecionado é: " + caminhoSelecionado, "Diretório Selecionado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
@@ -174,12 +174,40 @@ namespace PPN
                 psi.Arguments = "/c " + comando;
                 psi.UseShellExecute = true;
                 psi.Verb = "runas";
-               
+
                 Process.Start(psi);
             }
 
         }
 
+        private void btn_Max_Click(object sender, EventArgs e)
+        {
+            string comando = "powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61";
+
+            ProcessStartInfo psi = new ProcessStartInfo();
+            psi.FileName = "cmd.exe";
+            psi.Arguments = "/c " + comando;
+            psi.UseShellExecute = true;
+            psi.Verb = "runas";
+
+            Process.Start(psi);
+            
+            DialogResult resultado = MessageBox.Show("Deseja ir ao painel de controle?", "Desempenho Máximo criado",  MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            MessageBox.Show("Ao ativar o desempenho máximo, tenha certeza que seu computador esteja preparado para fazer o resfriamento das peças corretamente");
+
+            if (resultado == DialogResult.Yes)
+            {
+                string comando2 = "powercfg.cpl";
+
+                ProcessStartInfo psi2 = new ProcessStartInfo();
+                psi2.FileName = "cmd.exe";
+                psi2.Arguments = "/c " + comando2;
+                psi2.UseShellExecute = true;
+                psi2.Verb = "runas";
+
+                Process.Start(psi2);
+            }
+        }
     }
 
 }

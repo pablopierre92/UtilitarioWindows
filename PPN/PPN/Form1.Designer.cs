@@ -36,6 +36,7 @@
             btn_exportar = new Button();
             groupBox3 = new GroupBox();
             btn_importar = new Button();
+            btn_Max = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -123,11 +124,22 @@
             btn_importar.UseVisualStyleBackColor = true;
             btn_importar.Click += btn_importar_Click;
             // 
+            // btn_Max
+            // 
+            btn_Max.Location = new Point(253, 243);
+            btn_Max.Name = "btn_Max";
+            btn_Max.Size = new Size(75, 23);
+            btn_Max.TabIndex = 7;
+            btn_Max.Text = "button1";
+            btn_Max.UseVisualStyleBackColor = true;
+            btn_Max.Click += btn_Max_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(361, 356);
+            Controls.Add(btn_Max);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -150,5 +162,6 @@
         private Button btn_exportar;
         private GroupBox groupBox3;
         private Button btn_importar;
+        private Button btn_Max;
     }
 }
