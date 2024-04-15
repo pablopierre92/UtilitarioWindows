@@ -87,7 +87,7 @@ namespace PPN
 
         private void btn_Corrige_Click(object sender, EventArgs e)
         {
-            comando = "sfc /scannow";            
+            comando = "sfc /scannow";
 
             MessageBox.Show("Será feita a procura de erros no sistema e correção");
 
@@ -98,7 +98,7 @@ namespace PPN
 
         private void btn_chkdsk_Click(object sender, EventArgs e)
         {
-            comando = "chkdsk /r /f";                      
+            comando = "chkdsk /r /f";
 
             MessageBox.Show("Quando começar digite Y e 'enter' para ser feita a verificação de disco quando reiniciar");
 
@@ -118,7 +118,7 @@ namespace PPN
                 {
                     // Cria a pasta
                     Directory.CreateDirectory(caminhoPasta);
-                    MessageBox.Show("Pasta BackupDrivers em C: criada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("O backup será feiro em C:/BackupDrivers", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -172,15 +172,9 @@ namespace PPN
 
             if (resultado == DialogResult.Yes)
             {
-                string comando2 = "powercfg.cpl";
+                comando = "powercfg.cpl";
 
-                ProcessStartInfo psi2 = new ProcessStartInfo();
-                psi2.FileName = "cmd.exe";
-                psi2.Arguments = "/c " + comando2;
-                psi2.UseShellExecute = true;
-                psi2.Verb = "runas";
-
-                Process.Start(psi2);
+                ExecutaCmd();
             }
         }
 
@@ -218,7 +212,13 @@ namespace PPN
 
             ExecutaCmd();
 
-            
+        }
+
+        private void btn_AddRem_Click(object sender, EventArgs e)
+        {
+            comando = "start appwiz.cpl";
+
+            ExecutaCmd();
         }
     }
 }

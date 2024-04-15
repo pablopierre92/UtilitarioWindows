@@ -44,6 +44,8 @@
             btn_OpcDes = new Button();
             groupBox5 = new GroupBox();
             btn_AntiVirus = new Button();
+            btn_AddRem = new Button();
+            btn_OpcoesDeEnergia = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -84,7 +86,7 @@
             // 
             // btn_Corrige
             // 
-            btn_Corrige.Location = new Point(6, 36);
+            btn_Corrige.Location = new Point(20, 22);
             btn_Corrige.Name = "btn_Corrige";
             btn_Corrige.Size = new Size(75, 23);
             btn_Corrige.TabIndex = 2;
@@ -94,7 +96,7 @@
             // 
             // btn_chkdsk
             // 
-            btn_chkdsk.Location = new Point(101, 36);
+            btn_chkdsk.Location = new Point(108, 22);
             btn_chkdsk.Name = "btn_chkdsk";
             btn_chkdsk.Size = new Size(75, 23);
             btn_chkdsk.TabIndex = 3;
@@ -108,14 +110,14 @@
             groupBox2.Controls.Add(btn_chkdsk);
             groupBox2.Location = new Point(12, 108);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(200, 100);
+            groupBox2.Size = new Size(200, 65);
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             groupBox2.Text = "Correção";
             // 
             // btn_exportar
             // 
-            btn_exportar.Location = new Point(20, 43);
+            btn_exportar.Location = new Point(20, 28);
             btn_exportar.Name = "btn_exportar";
             btn_exportar.Size = new Size(75, 23);
             btn_exportar.TabIndex = 5;
@@ -127,16 +129,16 @@
             // 
             groupBox3.Controls.Add(btn_importar);
             groupBox3.Controls.Add(btn_exportar);
-            groupBox3.Location = new Point(12, 223);
+            groupBox3.Location = new Point(12, 189);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(200, 100);
+            groupBox3.Size = new Size(200, 69);
             groupBox3.TabIndex = 6;
             groupBox3.TabStop = false;
             groupBox3.Text = "Drivers";
             // 
             // btn_importar
             // 
-            btn_importar.Location = new Point(112, 43);
+            btn_importar.Location = new Point(108, 28);
             btn_importar.Name = "btn_importar";
             btn_importar.Size = new Size(75, 23);
             btn_importar.TabIndex = 7;
@@ -146,16 +148,17 @@
             // 
             // btn_Max
             // 
-            btn_Max.Location = new Point(9, 22);
+            btn_Max.Location = new Point(26, 22);
             btn_Max.Name = "btn_Max";
-            btn_Max.Size = new Size(75, 23);
+            btn_Max.Size = new Size(140, 23);
             btn_Max.TabIndex = 7;
-            btn_Max.Text = "Máximo";
+            btn_Max.Text = "Máximo Desempenho";
             btn_Max.UseVisualStyleBackColor = true;
             btn_Max.Click += btn_Max_Click;
             // 
             // groupBox4
             // 
+            groupBox4.Controls.Add(btn_OpcoesDeEnergia);
             groupBox4.Controls.Add(btn_Max);
             groupBox4.Location = new Point(256, 12);
             groupBox4.Name = "groupBox4";
@@ -176,7 +179,7 @@
             // 
             // btn_Sensor
             // 
-            btn_Sensor.Location = new Point(17, 52);
+            btn_Sensor.Location = new Point(17, 51);
             btn_Sensor.Name = "btn_Sensor";
             btn_Sensor.Size = new Size(161, 23);
             btn_Sensor.TabIndex = 10;
@@ -186,7 +189,7 @@
             // 
             // btn_OpcDes
             // 
-            btn_OpcDes.Location = new Point(17, 83);
+            btn_OpcDes.Location = new Point(17, 81);
             btn_OpcDes.Name = "btn_OpcDes";
             btn_OpcDes.Size = new Size(161, 23);
             btn_OpcDes.TabIndex = 11;
@@ -199,16 +202,16 @@
             groupBox5.Controls.Add(btn_Notifc);
             groupBox5.Controls.Add(btn_OpcDes);
             groupBox5.Controls.Add(btn_Sensor);
-            groupBox5.Location = new Point(254, 123);
+            groupBox5.Location = new Point(254, 117);
             groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(200, 117);
+            groupBox5.Size = new Size(200, 141);
             groupBox5.TabIndex = 12;
             groupBox5.TabStop = false;
             groupBox5.Text = "Otimizar";
             // 
             // btn_AntiVirus
             // 
-            btn_AntiVirus.Location = new Point(254, 266);
+            btn_AntiVirus.Location = new Point(12, 275);
             btn_AntiVirus.Name = "btn_AntiVirus";
             btn_AntiVirus.Size = new Size(75, 23);
             btn_AntiVirus.TabIndex = 13;
@@ -216,11 +219,31 @@
             btn_AntiVirus.UseVisualStyleBackColor = true;
             btn_AntiVirus.Click += btn_AntiVirus_Click;
             // 
+            // btn_AddRem
+            // 
+            btn_AddRem.Location = new Point(271, 229);
+            btn_AddRem.Name = "btn_AddRem";
+            btn_AddRem.Size = new Size(161, 23);
+            btn_AddRem.TabIndex = 14;
+            btn_AddRem.Text = "Add / Remover Programas";
+            btn_AddRem.UseVisualStyleBackColor = true;
+            btn_AddRem.Click += btn_AddRem_Click;
+            // 
+            // btn_OpcoesDeEnergia
+            // 
+            btn_OpcoesDeEnergia.Location = new Point(26, 53);
+            btn_OpcoesDeEnergia.Name = "btn_OpcoesDeEnergia";
+            btn_OpcoesDeEnergia.Size = new Size(140, 23);
+            btn_OpcoesDeEnergia.TabIndex = 8;
+            btn_OpcoesDeEnergia.Text = "Opções de Energia";
+            btn_OpcoesDeEnergia.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(513, 356);
+            Controls.Add(btn_AddRem);
             Controls.Add(btn_AntiVirus);
             Controls.Add(groupBox5);
             Controls.Add(groupBox4);
@@ -256,5 +279,7 @@
         private Button btn_OpcDes;
         private GroupBox groupBox5;
         private Button btn_AntiVirus;
+        private Button btn_AddRem;
+        private Button btn_OpcoesDeEnergia;
     }
 }
