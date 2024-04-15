@@ -1,6 +1,8 @@
+using Microsoft.Win32;
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Security.Principal;
 
 namespace PPN
 {
@@ -13,6 +15,7 @@ namespace PPN
             InitializeComponent();
 
         }
+                       
 
         private void btn_Temp_Click(object sender, EventArgs e)
         {
@@ -191,8 +194,8 @@ namespace PPN
             psi.Verb = "runas";
 
             Process.Start(psi);
-            
-            DialogResult resultado = MessageBox.Show("Deseja ir ao painel de controle?", "Desempenho Máximo criado",  MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            DialogResult resultado = MessageBox.Show("Deseja ir ao painel de controle?", "Desempenho Máximo criado", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             MessageBox.Show("Ao ativar o desempenho máximo, tenha certeza que seu computador esteja preparado para fazer o resfriamento das peças corretamente");
 
             if (resultado == DialogResult.Yes)
@@ -208,6 +211,52 @@ namespace PPN
                 Process.Start(psi2);
             }
         }
-    }
 
+        private void btn_limpezaDeDisco_Click(object sender, EventArgs e)
+        {
+            Process.Start("cleanmgr.exe");
+        }
+
+        private void btn_Notifc_Click(object sender, EventArgs e)
+        {
+            string comando = "start ms-settings:notifications";
+
+            ProcessStartInfo psi = new ProcessStartInfo();
+            psi.FileName = "cmd.exe";
+            psi.Arguments = "/c " + comando;
+            psi.UseShellExecute = true;
+            psi.Verb = "runas";
+
+            Process.Start(psi);
+        }
+
+        private void btn_Sensor_Click(object sender, EventArgs e)
+        {
+
+            string comando = "start ms-settings:storagesense";
+
+            ProcessStartInfo psi = new ProcessStartInfo();
+            psi.FileName = "cmd.exe";
+            psi.Arguments = "/c " + comando;
+            psi.UseShellExecute = true;
+            psi.Verb = "runas";
+
+            Process.Start(psi);
+        }
+
+        private void btn_OpcDes_Click(object sender, EventArgs e)
+        {
+
+            string comando = "start SystemPropertiesPerformance.exe";            
+
+            ProcessStartInfo psi = new ProcessStartInfo();
+            psi.FileName = "cmd.exe";
+            psi.Arguments = "/c " + comando;
+            psi.UseShellExecute = true;
+            psi.Verb = "runas";
+
+            Process.Start(psi);
+        }
+    }
 }
+
