@@ -15,17 +15,11 @@ namespace PPN
             InitializeComponent();
 
         }
-                       
 
-        private void btn_Temp_Click(object sender, EventArgs e)
+        string comando = "";
+
+        public void ExecutaCmd()
         {
-            string tempPath = Path.GetTempPath();
-            CleanDirectory(tempPath);
-
-            // Pasta %Temp%
-            string comando = "Del /S /F /Q %temp%";
-
-            // Configura as propriedades do processo
             ProcessStartInfo psi = new ProcessStartInfo();
             psi.FileName = "cmd.exe";
             psi.Arguments = "/c " + comando;
@@ -33,6 +27,17 @@ namespace PPN
             psi.Verb = "runas"; // Executa como administrador
 
             Process.Start(psi);
+        }
+
+        private void btn_Temp_Click(object sender, EventArgs e)
+        {
+            string tempPath = Path.GetTempPath();
+            CleanDirectory(tempPath);
+
+            // Pasta %Temp%
+            comando = "Del /S /F /Q %temp%";
+
+            ExecutaCmd();
 
             // Pasta Prefetch
             string prefetchPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Windows), "Prefetch");
@@ -82,36 +87,23 @@ namespace PPN
 
         private void btn_Corrige_Click(object sender, EventArgs e)
         {
-            string comando = "sfc /scannow";
-
-
-            ProcessStartInfo psi = new ProcessStartInfo();
-            psi.FileName = "cmd.exe";
-            psi.Arguments = "/c " + comando;
-            psi.UseShellExecute = true;
-            psi.Verb = "runas";
+            comando = "sfc /scannow";            
 
             MessageBox.Show("Será feita a procura de erros no sistema e correção");
 
-            Process.Start(psi);
+            ExecutaCmd();
 
 
         }
 
         private void btn_chkdsk_Click(object sender, EventArgs e)
         {
-            string comando = "chkdsk /r /f";
+            comando = "chkdsk /r /f";                      
 
+            MessageBox.Show("Quando começar digite Y e 'enter' para ser feita a verificação de disco quando reiniciar");
 
-            ProcessStartInfo psi = new ProcessStartInfo();
-            psi.FileName = "cmd.exe";
-            psi.Arguments = "/c " + comando;
-            psi.UseShellExecute = true;
-            psi.Verb = "runas";
+            ExecutaCmd();
 
-            MessageBox.Show("Quando começar digite Y para ser feita a verificação de disco quando reiniciar");
-
-            Process.Start(psi);
         }
 
         private void btn_exportar_Click(object sender, EventArgs e)
@@ -133,17 +125,10 @@ namespace PPN
                     MessageBox.Show("A pasta BackupDrivers em C: já existe!, os arquivos serão copiados para ela", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
-                string comando = "dism /online /export-driver /destination:C:\\BackupDrivers";
+                comando = "dism /online /export-driver /destination:C:\\BackupDrivers";
 
 
-                ProcessStartInfo psi = new ProcessStartInfo();
-                psi.FileName = "cmd.exe";
-                psi.Arguments = "/c " + comando;
-                psi.UseShellExecute = true;
-                psi.Verb = "runas";
-
-
-                Process.Start(psi);
+                ExecutaCmd();
 
             }
             catch (Exception ex)
@@ -169,31 +154,18 @@ namespace PPN
                     MessageBox.Show("O diretório selecionado é: " + caminhoSelecionado, "Diretório Selecionado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                string comando = "Dism /online /Add-Driver /Driver:E:{caminhoSelecionado} /Recurse";
+                comando = "Dism /online /Add-Driver /Driver:E:{caminhoSelecionado} /Recurse";
 
-
-                ProcessStartInfo psi = new ProcessStartInfo();
-                psi.FileName = "cmd.exe";
-                psi.Arguments = "/c " + comando;
-                psi.UseShellExecute = true;
-                psi.Verb = "runas";
-
-                Process.Start(psi);
+                ExecutaCmd();
             }
 
         }
 
         private void btn_Max_Click(object sender, EventArgs e)
         {
-            string comando = "powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61";
+            comando = "powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61";
 
-            ProcessStartInfo psi = new ProcessStartInfo();
-            psi.FileName = "cmd.exe";
-            psi.Arguments = "/c " + comando;
-            psi.UseShellExecute = true;
-            psi.Verb = "runas";
-
-            Process.Start(psi);
+            ExecutaCmd();
 
             DialogResult resultado = MessageBox.Show("Deseja ir ao painel de controle?", "Desempenho Máximo criado", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             MessageBox.Show("Ao ativar o desempenho máximo, tenha certeza que seu computador esteja preparado para fazer o resfriamento das peças corretamente");
@@ -219,43 +191,34 @@ namespace PPN
 
         private void btn_Notifc_Click(object sender, EventArgs e)
         {
-            string comando = "start ms-settings:notifications";
+            comando = "start ms-settings:notifications";
 
-            ProcessStartInfo psi = new ProcessStartInfo();
-            psi.FileName = "cmd.exe";
-            psi.Arguments = "/c " + comando;
-            psi.UseShellExecute = true;
-            psi.Verb = "runas";
-
-            Process.Start(psi);
+            ExecutaCmd();
         }
 
         private void btn_Sensor_Click(object sender, EventArgs e)
         {
 
-            string comando = "start ms-settings:storagesense";
+            comando = "start ms-settings:storagesense";
 
-            ProcessStartInfo psi = new ProcessStartInfo();
-            psi.FileName = "cmd.exe";
-            psi.Arguments = "/c " + comando;
-            psi.UseShellExecute = true;
-            psi.Verb = "runas";
-
-            Process.Start(psi);
+            ExecutaCmd();
         }
 
         private void btn_OpcDes_Click(object sender, EventArgs e)
         {
 
-            string comando = "start SystemPropertiesPerformance.exe";            
+            comando = "start SystemPropertiesPerformance.exe";
 
-            ProcessStartInfo psi = new ProcessStartInfo();
-            psi.FileName = "cmd.exe";
-            psi.Arguments = "/c " + comando;
-            psi.UseShellExecute = true;
-            psi.Verb = "runas";
+            ExecutaCmd();
+        }
 
-            Process.Start(psi);
+        private void btn_AntiVirus_Click(object sender, EventArgs e)
+        {
+            comando = "mrt.exe";
+
+            ExecutaCmd();
+
+            
         }
     }
 }

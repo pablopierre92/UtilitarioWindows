@@ -43,6 +43,7 @@
             btn_Sensor = new Button();
             btn_OpcDes = new Button();
             groupBox5 = new GroupBox();
+            btn_AntiVirus = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -205,11 +206,22 @@
             groupBox5.TabStop = false;
             groupBox5.Text = "Otimizar";
             // 
+            // btn_AntiVirus
+            // 
+            btn_AntiVirus.Location = new Point(254, 266);
+            btn_AntiVirus.Name = "btn_AntiVirus";
+            btn_AntiVirus.Size = new Size(75, 23);
+            btn_AntiVirus.TabIndex = 13;
+            btn_AntiVirus.Text = "Anti-Vírus";
+            btn_AntiVirus.UseVisualStyleBackColor = true;
+            btn_AntiVirus.Click += btn_AntiVirus_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(513, 356);
+            Controls.Add(btn_AntiVirus);
             Controls.Add(groupBox5);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
@@ -243,5 +255,6 @@
         private Button btn_Sensor;
         private Button btn_OpcDes;
         private GroupBox groupBox5;
+        private Button btn_AntiVirus;
     }
 }
