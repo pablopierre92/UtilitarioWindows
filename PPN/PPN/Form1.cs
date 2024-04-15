@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.IO;
 
 namespace PPN
@@ -56,8 +57,42 @@ namespace PPN
             }
 
         }
+
+        private void btn_Corrige_Click(object sender, EventArgs e)
+        {
+            string comando = "sfc /scannow";
+
+            // Configura as propriedades do processo
+            ProcessStartInfo psi = new ProcessStartInfo();
+            psi.FileName = "cmd.exe";
+            psi.Arguments = "/c " + comando; 
+            psi.UseShellExecute = true; // Usa o shell para iniciar o processo
+            psi.Verb = "runas"; // Executa como administrador
+
+            MessageBox.Show("Será feita a procura de erros no sistema e correção");
+            // Inicia o processo
+            Process.Start(psi);
+
+
+        }
+
+        private void btn_chkdsk_Click(object sender, EventArgs e)
+        {
+            string comando = "chkdsk /r /f";
+
+            // Configura as propriedades do processo
+            ProcessStartInfo psi = new ProcessStartInfo();
+            psi.FileName = "cmd.exe";
+            psi.Arguments = "/c " + comando; 
+            psi.UseShellExecute = true; // Usa o shell para iniciar o processo
+            psi.Verb = "runas"; // Executa como administrador
+
+            MessageBox.Show("Quando começar digite Y para ser feita a verificação de disco quando reiniciar");
+            // Inicia o processo
+            Process.Start(psi);
+        }
     }
 
-        
-    
+
+
 }
