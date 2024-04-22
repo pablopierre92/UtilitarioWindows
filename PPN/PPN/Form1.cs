@@ -311,6 +311,24 @@ namespace PPN
 				MessageBox.Show($"Ocorreu um erro ao gerar o arquivo .bat: {ex.Message}");
 			}
 		}
+
+		private void btn_Uac_Click(object sender, EventArgs e)
+		{
+			comando = "reg.exe add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" /v EnableLUA /t REG_DWORD /d 0 /f";
+			ExecutaCmd();
+
+			DialogResult resultado = MessageBox.Show("Reinicie seu computador para a modificações fazerem efeito", "Reiniciar?", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+			
+
+			if (resultado == DialogResult.Yes)
+			{
+				comando = "shutdown /r /t 0"; 
+
+				ExecutaCmd();
+			}
+
+
+		}
 	}
 }
 

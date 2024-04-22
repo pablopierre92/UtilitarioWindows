@@ -57,6 +57,7 @@
 			btn_GerarBat = new Button();
 			groupBox7 = new GroupBox();
 			btn_GerarReiniciar = new Button();
+			btn_Uac = new Button();
 			groupBox1.SuspendLayout();
 			groupBox2.SuspendLayout();
 			groupBox3.SuspendLayout();
@@ -80,7 +81,7 @@
 			// 
 			groupBox1.Controls.Add(btn_limpezaDeDisco);
 			groupBox1.Controls.Add(btn_Temp);
-			groupBox1.Location = new Point(12, 12);
+			groupBox1.Location = new Point(12, 43);
 			groupBox1.Name = "groupBox1";
 			groupBox1.Size = new Size(200, 90);
 			groupBox1.TabIndex = 1;
@@ -121,7 +122,7 @@
 			// 
 			groupBox2.Controls.Add(btn_Corrige);
 			groupBox2.Controls.Add(btn_chkdsk);
-			groupBox2.Location = new Point(12, 108);
+			groupBox2.Location = new Point(12, 139);
 			groupBox2.Name = "groupBox2";
 			groupBox2.Size = new Size(200, 65);
 			groupBox2.TabIndex = 4;
@@ -142,7 +143,7 @@
 			// 
 			groupBox3.Controls.Add(btn_importar);
 			groupBox3.Controls.Add(btn_exportar);
-			groupBox3.Location = new Point(12, 189);
+			groupBox3.Location = new Point(12, 220);
 			groupBox3.Name = "groupBox3";
 			groupBox3.Size = new Size(200, 69);
 			groupBox3.TabIndex = 6;
@@ -173,7 +174,7 @@
 			// 
 			groupBox4.Controls.Add(btn_OpcoesDeEnergia);
 			groupBox4.Controls.Add(btn_Max);
-			groupBox4.Location = new Point(256, 12);
+			groupBox4.Location = new Point(256, 43);
 			groupBox4.Name = "groupBox4";
 			groupBox4.Size = new Size(198, 90);
 			groupBox4.TabIndex = 8;
@@ -225,7 +226,7 @@
 			groupBox5.Controls.Add(btn_Notifc);
 			groupBox5.Controls.Add(btn_OpcDes);
 			groupBox5.Controls.Add(btn_Sensor);
-			groupBox5.Location = new Point(254, 117);
+			groupBox5.Location = new Point(254, 148);
 			groupBox5.Name = "groupBox5";
 			groupBox5.Size = new Size(200, 141);
 			groupBox5.TabIndex = 12;
@@ -234,9 +235,9 @@
 			// 
 			// btn_AntiVirus
 			// 
-			btn_AntiVirus.Location = new Point(12, 275);
+			btn_AntiVirus.Location = new Point(12, 306);
 			btn_AntiVirus.Name = "btn_AntiVirus";
-			btn_AntiVirus.Size = new Size(101, 23);
+			btn_AntiVirus.Size = new Size(95, 23);
 			btn_AntiVirus.TabIndex = 13;
 			btn_AntiVirus.Text = "Anti-Vírus";
 			btn_AntiVirus.UseVisualStyleBackColor = true;
@@ -244,7 +245,7 @@
 			// 
 			// btn_AddRem
 			// 
-			btn_AddRem.Location = new Point(271, 229);
+			btn_AddRem.Location = new Point(271, 260);
 			btn_AddRem.Name = "btn_AddRem";
 			btn_AddRem.Size = new Size(161, 23);
 			btn_AddRem.TabIndex = 14;
@@ -265,7 +266,7 @@
 			// 
 			// btn_Ativar
 			// 
-			btn_Ativar.Location = new Point(120, 275);
+			btn_Ativar.Location = new Point(111, 306);
 			btn_Ativar.Name = "btn_Ativar";
 			btn_Ativar.Size = new Size(101, 23);
 			btn_Ativar.TabIndex = 17;
@@ -279,9 +280,9 @@
 			groupBox6.Controls.Add(label1);
 			groupBox6.Controls.Add(btn_AddMostrarMais);
 			groupBox6.Controls.Add(btn_RemMostrarmais);
-			groupBox6.Location = new Point(256, 284);
+			groupBox6.Location = new Point(256, 315);
 			groupBox6.Name = "groupBox6";
-			groupBox6.Size = new Size(226, 137);
+			groupBox6.Size = new Size(198, 106);
 			groupBox6.TabIndex = 18;
 			groupBox6.TabStop = false;
 			groupBox6.Text = "Windows 11";
@@ -339,7 +340,7 @@
 			// 
 			groupBox7.Controls.Add(btn_GerarReiniciar);
 			groupBox7.Controls.Add(btn_GerarBat);
-			groupBox7.Location = new Point(18, 321);
+			groupBox7.Location = new Point(18, 352);
 			groupBox7.Name = "groupBox7";
 			groupBox7.Size = new Size(194, 69);
 			groupBox7.TabIndex = 20;
@@ -356,11 +357,22 @@
 			btn_GerarReiniciar.UseVisualStyleBackColor = true;
 			btn_GerarReiniciar.Click += btn_GerarReiniciar_Click;
 			// 
+			// btn_Uac
+			// 
+			btn_Uac.Location = new Point(57, 12);
+			btn_Uac.Name = "btn_Uac";
+			btn_Uac.Size = new Size(110, 23);
+			btn_Uac.TabIndex = 21;
+			btn_Uac.Text = "Desabilitar UAC";
+			btn_Uac.UseVisualStyleBackColor = true;
+			btn_Uac.Click += btn_Uac_Click;
+			// 
 			// Form1
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(528, 486);
+			Controls.Add(btn_Uac);
 			Controls.Add(groupBox7);
 			Controls.Add(groupBox6);
 			Controls.Add(btn_Ativar);
@@ -418,5 +430,6 @@
 		private Button btn_GerarBat;
 		private GroupBox groupBox7;
 		private Button btn_GerarReiniciar;
+		private Button btn_Uac;
 	}
 }
