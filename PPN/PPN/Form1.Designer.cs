@@ -62,6 +62,7 @@
             btn_Uac = new Button();
             btn_InfSis = new Button();
             btn_Key = new Button();
+            label2 = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -282,7 +283,7 @@
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(587, 451);
+            linkLabel1.Location = new Point(364, 462);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(135, 15);
             linkLabel1.TabIndex = 16;
@@ -385,7 +386,7 @@
             // 
             // btn_Uac
             // 
-            btn_Uac.Location = new Point(73, 14);
+            btn_Uac.Location = new Point(12, 14);
             btn_Uac.Name = "btn_Uac";
             btn_Uac.Size = new Size(110, 23);
             btn_Uac.TabIndex = 21;
@@ -395,18 +396,17 @@
             // 
             // btn_InfSis
             // 
-            btn_InfSis.Location = new Point(540, 65);
+            btn_InfSis.Location = new Point(128, 14);
             btn_InfSis.Name = "btn_InfSis";
-            btn_InfSis.Size = new Size(148, 23);
+            btn_InfSis.Size = new Size(147, 23);
             btn_InfSis.TabIndex = 22;
             btn_InfSis.Text = "Informações do Sistema";
-            btn_InfSis.TextAlign = ContentAlignment.BottomLeft;
             btn_InfSis.UseVisualStyleBackColor = true;
             btn_InfSis.Click += btn_InfSis_Click;
             // 
             // btn_Key
             // 
-            btn_Key.Location = new Point(508, 96);
+            btn_Key.Location = new Point(280, 14);
             btn_Key.Name = "btn_Key";
             btn_Key.Size = new Size(205, 23);
             btn_Key.TabIndex = 23;
@@ -414,11 +414,21 @@
             btn_Key.UseVisualStyleBackColor = true;
             btn_Key.Click += btn_Key_Click;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(265, 461);
+            label2.Name = "label2";
+            label2.Size = new Size(99, 15);
+            label2.TabIndex = 24;
+            label2.Text = "Desenvolvido por";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(734, 486);
+            ClientSize = new Size(511, 486);
+            Controls.Add(label2);
             Controls.Add(btn_Key);
             Controls.Add(btn_InfSis);
             Controls.Add(btn_Uac);
@@ -484,5 +494,6 @@
         private Button btn_ReiniciarExplorer;
         private Button btn_InfSis;
         private Button btn_Key;
+        private Label label2;
     }
 }

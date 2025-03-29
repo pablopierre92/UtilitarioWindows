@@ -34,8 +34,7 @@ namespace PPN
         {
             ProcessStartInfo psi = new ProcessStartInfo();
             psi.FileName = "powershell.exe";
-            psi.Arguments = "-NoExit -Command \"Write-Output 'Chave do Windows'; " + script + "\"";
-
+            psi.Arguments = "-NoExit -Command \"Write-Output 'Chave do Windows:'; " + script + "\"";
             psi.UseShellExecute = true; // Usa o shell para iniciar o processo
             psi.Verb = "runas"; // Executa como administrador
 
