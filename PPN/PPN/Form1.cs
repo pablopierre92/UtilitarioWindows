@@ -17,12 +17,25 @@ namespace PPN
         }
 
         string comando = "";
+        string script = "";
 
         public void ExecutaCmd()
         {
             ProcessStartInfo psi = new ProcessStartInfo();
             psi.FileName = "cmd.exe";
             psi.Arguments = "/c " + comando;
+            psi.UseShellExecute = true; // Usa o shell para iniciar o processo
+            psi.Verb = "runas"; // Executa como administrador
+
+            Process.Start(psi);
+        }
+
+        public void ExecutaPowerShell()
+        {
+            ProcessStartInfo psi = new ProcessStartInfo();
+            psi.FileName = "powershell.exe";
+            psi.Arguments = "-NoExit -Command \"Write-Output 'Chave do Windows'; " + script + "\"";
+
             psi.UseShellExecute = true; // Usa o shell para iniciar o processo
             psi.Verb = "runas"; // Executa como administrador
 
@@ -352,12 +365,49 @@ namespace PPN
 
                 // Inicia o Windows Explorer novamente
                 Process.Start("explorer.exe");
-                
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao reiniciar o Windows Explorer: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btn_InfSis_Click(object sender, EventArgs e)
+        {
+            comando = "msinfo32";
+            ExecutaCmd();
+        }
+
+        private void btn_Key_Click(object sender, EventArgs e)
+        {
+            script = @"
+            function Get-WindowsKey {
+                $key = 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion'
+                $digitalProductId = (Get-ItemProperty -Path $key).DigitalProductId
+                $chars = 'BCDFGHJKMPQRTVWXY2346789'
+                $keyOffset = 52
+                $isWin8 = ($digitalProductId[66] -band 0xF0) -eq 0x80
+                if ($isWin8) {$keyOffset = 56}
+                $productKey = ''
+                for ($i = 24; $i -ge 0; $i--) {
+                    $current = 0
+                    for ($j = 14; $j -ge 0; $j--) {
+                        $current = ($current * 256) -bxor $digitalProductId[$j + $keyOffset]
+                        $digitalProductId[$j + $keyOffset] = [math]::Floor($current / 24)
+                        $current = $current % 24
+                    }
+                    $productKey = $chars[$current] + $productKey
+                    if (($i % 5) -eq 0 -and $i -ne 0) {
+                        $productKey = '-' + $productKey
+                    }
+                }
+                return $productKey
+            }
+            Get-WindowsKey
+            ";
+
+            ExecutaPowerShell();
         }
     }
 }

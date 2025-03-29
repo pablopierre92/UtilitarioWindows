@@ -35,6 +35,7 @@
             btn_Corrige = new Button();
             btn_chkdsk = new Button();
             groupBox2 = new GroupBox();
+            btn_ReiniciarExplorer = new Button();
             btn_Dism = new Button();
             btn_exportar = new Button();
             groupBox3 = new GroupBox();
@@ -59,7 +60,8 @@
             groupBox7 = new GroupBox();
             btn_GerarReiniciar = new Button();
             btn_Uac = new Button();
-            btn_ReiniciarExplorer = new Button();
+            btn_InfSis = new Button();
+            btn_Key = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -132,6 +134,16 @@
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             groupBox2.Text = "Correção";
+            // 
+            // btn_ReiniciarExplorer
+            // 
+            btn_ReiniciarExplorer.Location = new Point(108, 60);
+            btn_ReiniciarExplorer.Name = "btn_ReiniciarExplorer";
+            btn_ReiniciarExplorer.Size = new Size(108, 23);
+            btn_ReiniciarExplorer.TabIndex = 22;
+            btn_ReiniciarExplorer.Text = "Reiniciar Explorer";
+            btn_ReiniciarExplorer.UseVisualStyleBackColor = true;
+            btn_ReiniciarExplorer.Click += btn_ReiniciarExplorer_Click;
             // 
             // btn_Dism
             // 
@@ -270,7 +282,7 @@
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(372, 452);
+            linkLabel1.Location = new Point(587, 451);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(135, 15);
             linkLabel1.TabIndex = 16;
@@ -381,21 +393,34 @@
             btn_Uac.UseVisualStyleBackColor = true;
             btn_Uac.Click += btn_Uac_Click;
             // 
-            // btn_ReiniciarExplorer
+            // btn_InfSis
             // 
-            btn_ReiniciarExplorer.Location = new Point(108, 60);
-            btn_ReiniciarExplorer.Name = "btn_ReiniciarExplorer";
-            btn_ReiniciarExplorer.Size = new Size(108, 23);
-            btn_ReiniciarExplorer.TabIndex = 22;
-            btn_ReiniciarExplorer.Text = "Reiniciar Explorer";
-            btn_ReiniciarExplorer.UseVisualStyleBackColor = true;
-            btn_ReiniciarExplorer.Click += btn_ReiniciarExplorer_Click;
+            btn_InfSis.Location = new Point(540, 65);
+            btn_InfSis.Name = "btn_InfSis";
+            btn_InfSis.Size = new Size(148, 23);
+            btn_InfSis.TabIndex = 22;
+            btn_InfSis.Text = "Informações do Sistema";
+            btn_InfSis.TextAlign = ContentAlignment.BottomLeft;
+            btn_InfSis.UseVisualStyleBackColor = true;
+            btn_InfSis.Click += btn_InfSis_Click;
+            // 
+            // btn_Key
+            // 
+            btn_Key.Location = new Point(508, 96);
+            btn_Key.Name = "btn_Key";
+            btn_Key.Size = new Size(205, 23);
+            btn_Key.TabIndex = 23;
+            btn_Key.Text = "Mostrar Chave do Windows";
+            btn_Key.UseVisualStyleBackColor = true;
+            btn_Key.Click += btn_Key_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(528, 486);
+            ClientSize = new Size(734, 486);
+            Controls.Add(btn_Key);
+            Controls.Add(btn_InfSis);
             Controls.Add(btn_Uac);
             Controls.Add(groupBox7);
             Controls.Add(groupBox6);
@@ -457,5 +482,7 @@
 		private Button btn_Uac;
         private Button btn_Dism;
         private Button btn_ReiniciarExplorer;
+        private Button btn_InfSis;
+        private Button btn_Key;
     }
 }
